@@ -2,7 +2,7 @@ from auth import validate_user
 
 def auth_middleware(request):
     auth_header = request.get('headers', {}).get('Authorization', '')
-    if not auth_header.startswith('Bearer '):
+    if not auth_header.startswith('Basic '):
         return False
     try:
         credentials = auth_header.split(' ')[1]
@@ -10,4 +10,3 @@ def auth_middleware(request):
         return validate_user(username, password)
     except Exception:
         return False
-
