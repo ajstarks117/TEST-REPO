@@ -5,6 +5,8 @@ from typing import Any, Dict, Optional
 
 def validate_token(token: Optional[str]) -> Dict[str, Any]:
     """Validate a session authentication token."""
+    if token is None:
+        raise ValueError("Token cannot be None")
     cleaned_token = token.strip()
 
     if len(cleaned_token) < 10:
