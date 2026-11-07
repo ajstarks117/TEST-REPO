@@ -32,3 +32,7 @@ def test_refresh_session():
 
     assert result["valid"] is True
     assert result["refreshed"] is True
+
+def test_refresh_session_rejects_missing_token():
+    with pytest.raises(ValueError):
+        refresh_session(None)
