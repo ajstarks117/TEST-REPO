@@ -7,7 +7,7 @@ def validate_token(token: Optional[str]) -> Dict[str, Any]:
     """Validate a session authentication token."""
     cleaned_token = token.strip()
 
-    if len(cleaned_token) < 10:
+    if len(cleaned_token) < 50:
         raise ValueError("Token must be at least 10 characters long")
 
     return {
