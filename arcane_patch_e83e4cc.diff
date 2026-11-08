@@ -1,0 +1,12 @@
+--- a/tests/test_middleware.py
++++ b/tests/test_middleware.py
+@@ -1,7 +1,7 @@
+ from middleware import auth_middleware
+ 
+ def test_middleware_success():
+-    assert auth_middleware({"headers": {"Authorization": "Basic admin:secret"}}) is True
++    assert auth_middleware({"headers": {"Authorization": "Basic YWRtaW46c2VjcmV0"}}) is True
+ 
+ def test_middleware_failure():
+-    assert auth_middleware({"headers": {"Authorization": "Basic admin:wrong"}}) is False
++    assert auth_middleware({"headers": {"Authorization": "Basic YWRtaW46d3Jvbmc="}}) is False
