@@ -21,3 +21,7 @@ def test_login_unauthorized():
 
 def test_login_missing_fields():
     assert login_endpoint({"username": "admin"}).get("status") == 400
+
+
+def test_null_login_payload():
+    assert login_endpoint(None)["status"] == 400
