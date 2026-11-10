@@ -7,6 +7,6 @@ def auth_middleware(request):
     try:
         credentials = auth_header.split(' ')[1]
         username, password = credentials.split(':')
-        return validate_user(username, password)
+        return bool(validate_user(username, password))
     except Exception:
         return False
