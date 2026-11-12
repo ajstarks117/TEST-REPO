@@ -22,6 +22,11 @@ def test_whitespace_only_token_raises_value_error():
         validate_token("   ")
 
 
+def test_dev_prefix_token_shorter_than_minimum_raises_value_error():
+    with pytest.raises(ValueError, match="at least 10 characters"):
+        validate_token("dev_123")
+
+
 def test_none_token_raises_value_error():
     with pytest.raises(ValueError):
         validate_token(None)
